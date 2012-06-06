@@ -1,0 +1,15 @@
+<h1>Добро пожаловать</h1>
+<p>Это каталог предприятий города Кировограда. Типа желтых страниц. Сайт ненастоящий. Подробнее об этом &mdash; в разделе "<%= link_to "О проекте", about_path %>".</p>
+<p>
+
+</p>
+<h3>Последние поступления</h3>
+<% if @items.present? %>
+  <ul>
+  <% @items.each do |item| %>
+    <li>
+      <%= link_to item.name, item %> в <%= link_to item.rubric.name, "#{browse_path}/#{item.rubric_id}" %>
+    </li>
+  <% end %>
+  </ul>
+<% end %>
